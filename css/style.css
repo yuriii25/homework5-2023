@@ -1,0 +1,150 @@
+/* Animate the logo with keyframes */
+@keyframes animatedlogo {
+    0%   {width: 25px; opacity: 0;}
+    100% {width: 475px; opacity: 100;}
+  }
+
+#logo{
+    animation: animatedlogo 5s;
+}
+
+/* Edit the body element & background */
+body{
+    font-family: "Poppins" , serif;
+    background: url(../images/concrete_seamless.png) #f1f1f1;
+}
+
+/*Edit the css for the header tag to use flex*/
+header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*Edit the css for the nav_links class to use flex*/
+.nav_links{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/*Style the links so that they have the same color even after they have been visited.*/
+.nav_item a:visited {
+    color: #0000EE;
+}
+
+.nav_item a:hover, a:focus{
+    color: #50C7C7;
+}
+
+/*Identify the proper selector to style*/
+.card > header{
+    background-color:#288088;
+    border: solid 2px #45ADAD;
+    padding: 20px 0px;
+    border-radius: 50px 50px 0px 0px;   
+}
+
+/*Edit the css for the card class to match our example*/
+.card{
+    border-radius: 50px 50px 0px 0px;
+    flex-basis: 450px;
+}
+
+.pricing{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items:stretch;
+}
+
+
+/*Style the images in the gallery class*/
+.gallery img{
+    border: solid 10px #50c7c7;
+    margin: 10px;
+    width: 300px;
+}
+
+/*Edit the css for the gallery class to use flex to match our example.*/
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+
+/*screen size greater than 900px*/
+@media screen and (min-width: 900px) {
+    header, .nav_links{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .pricing{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .card{
+        flex-basis: 275px;
+    }
+    
+    /*First header remains on the top*/
+    body > header{
+        position: sticky;
+        top: 0;
+    }
+
+}
+
+/*User prefers reduced motion*/ 
+@media (prefers-reduced-motion: reduce) {
+    #logo{
+        animation: none;
+    }
+}
+
+/*Print View*/
+@media print{
+    body{
+        font-family: Arial, Helvetica;
+        background-image: none;
+        background-color: #f1f1f1;
+    }
+
+    nav{
+        width: 100%;
+    }
+    .nav_links{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .pricing{
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: flex-end;
+    }
+
+    .card{
+        border:solid 2px#45ADDD;
+        flex-basis:325px;
+    }
+    /*No part of the gallery should be visible.*/
+    .gallery{
+        display: none;
+        
+    }
+
+    #gallery{
+        visibility: hidden;
+    }
+    /*thumbs up entity added*/
+    .card li:nth-child(2)::after{
+        content: "👍";
+    }
+
+}
